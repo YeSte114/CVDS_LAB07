@@ -34,10 +34,10 @@ public class JDBCExample {
     
     public static void main(String args[]){
         try {
-            String url="jdbc:mysql://HOST:3306/BD";
+            String url="jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/bdprueba";
             String driver="com.mysql.jdbc.Driver";
-            String user="USER";
-            String pwd="PWD";
+            String user="bdprueba";
+            String pwd="prueba2019";
                         
             Class.forName(driver);
             Connection con=DriverManager.getConnection(url,user,pwd);
@@ -47,6 +47,7 @@ public class JDBCExample {
             System.out.println("Valor total pedido 1:"+valorTotalPedido(con, 1));
             
             List<String> prodsPedido=nombresProductosPedido(con, 1);
+            System.out.println(prodsPedido);
             
             
             System.out.println("Productos del pedido 1:");
@@ -57,8 +58,8 @@ public class JDBCExample {
             System.out.println("-----------------------");
             
             
-            int suCodigoECI=20134423;
-            registrarNuevoProducto(con, suCodigoECI, "SU NOMBRE", 99999999);            
+            int suCodigoECI=151627;
+            registrarNuevoProducto(con, suCodigoECI, "natalia", 99999999);
             con.commit();
                         
             
@@ -80,8 +81,13 @@ public class JDBCExample {
      * @throws SQLException 
      */
     public static void registrarNuevoProducto(Connection con, int codigo, String nombre,int precio) throws SQLException{
-        //Crear preparedStatement
-        //Asignar parámetros
+        String query= "insert  into ORD_PRODUCTOS values( ?,?,?)";
+        PreparedStatement preparedStatement =con.prepareStatement(query);
+        preparedStatement.setInt(1, codigo);
+        preparedStatement.setString(2,nombre);
+        preparedStatement.setInt(3,precio);
+        System.out.println("insert: "+ preparedStatement.executeUpdate());
+
         //usar 'execute'
 
         
@@ -97,13 +103,25 @@ public class JDBCExample {
      */
     public static List<String> nombresProductosPedido(Connection con, int codigoPedido){
         List<String> np=new LinkedList<>();
-        
-        //Crear prepared statement
-        //asignar parámetros
-        //usar executeQuery
-        //Sacar resultados del ResultSet
-        //Llenar la lista y retornarla
-        
+        String query = "SELECT nombre " +
+                "FROM ORD_PRODUCTOS INNER JOIN ORD_DETALLE_PEDIDO dp ON (codigo = producto_fk)" +
+                "WHERE pedido_fk = ?";
+
+        try{
+            //Crear prepared statement
+            PreparedStatement statement = con.prepareStatement(query);
+            //asignar parámetros
+            statement.setInt(1, codigoPedido);
+            //usar executeQuery
+            ResultSet result = statement.executeQuery();
+            //Sacar resultados del ResultSet
+            while (result.next()){
+                //Llenar la lista y retornarla
+                np.add(result.getString("nombre"));
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return np;
     }
 
@@ -115,13 +133,21 @@ public class JDBCExample {
      * @return el costo total del pedido (suma de: cantidades*precios)
      */
     public static int valorTotalPedido(Connection con, int codigoPedido){
-        
-        //Crear prepared statement
-        //asignar parámetros
-        //usar executeQuery
-        //Sacar resultado del ResultSet
-        
-        return 0;
+        int total = 0;
+        String query = " Select SUM(cantidad *  precio) from ORD_DETALLE_PEDIDO inner join ORD_PRODUCTOS ON ( codigo = producto_fk) where pedido_fk = ?";
+        try{
+            PreparedStatement preparedStatement = con.prepareStatement(query);
+            preparedStatement.setInt(1, codigoPedido);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                total = resultSet.getInt(1);
+            }
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return total;
     }
     
 
