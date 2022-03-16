@@ -13,7 +13,7 @@
 
 4. En un motor de base de datos SQL se tiene un esquema con el siguiente modelo de base de datos (para registrar pedidos sobre productos):
 
-	![](img/ORD_PEDIDO.png)
+	![](img/ORD_PEDIDOS.png)
 
 5. Revise la documentación de ‘PreparedStatement’, del API JDBC.
 	
@@ -31,3 +31,6 @@
 	3. registrarNuevoProducto - Use su código de estudiante para evitar colisiones.
 	
 8. Verifique por medio de un cliente SQL, que la información retornada por el programa coincide con la que se encuentra almacenada en base de datos.
+
+	* **Ejecución**
+	![](img/EJECUCION.png)
