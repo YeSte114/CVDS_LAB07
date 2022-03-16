@@ -17,12 +17,12 @@
 
 5. Revise la documentación de ‘PreparedStatement’, del API JDBC.
 	
-6. En la clase JDBCExample juste los parámetros de conexión a la base de datos con los datos reales:
+6. En la clase **JDBCExample** juste los parámetros de conexión a la base de datos con los datos reales:
 
-	* Url: jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/bdprueba
-	  Driver: com.mysql.jdbc.Driver
-	  Usuario: bdprueba
-	  Contraseña: prueba2019
+	* **Url**: jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/bdprueba
+	  >**Driver**: com.mysql.jdbc.Driver
+	  >**Usuario**: bdprueba
+	  >**Contraseña**: prueba2019
 
 7. Implemente las operaciones faltantes:
 
