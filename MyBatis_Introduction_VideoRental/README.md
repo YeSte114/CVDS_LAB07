@@ -53,6 +53,10 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
         left join VI_ITEMS as i on ir.ITEMS_id=i.id 
         left join VI_TIPOITEM as ti on i.TIPOITEM_id=ti.id 
 	```
+ 
+	Colsulta en DBeaver
+
+   ![](img/CONSULTA_DBEAVER_1.png)
 
 3. Abra el archivo XML en el cual se definirán los parámetros para que MyBatis genere el 'mapper' de Cliente (ClienteMapper.xml). Ahora, mapee un elemento de tipo \<select> al método 'consultarClientes':
 
@@ -138,6 +142,7 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 	...
 	```
 
+   ![](img/CONSULTA_CLIENTES.png)
 
 ## Parte II (para el Miércoles)
 
@@ -157,11 +162,17 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 
 2. Verifique el funcionamiento haciendo una consulta a través del 'mapper' desde MyBatisExample.
 
+   ![](img/CONSULTA_CLIENTES_DOC.png)
+
 3. Configure en el XML correspondiente, la operación agregarItemRentadoACliente. Verifique el funcionamiento haciendo una consulta a través del 'mapper' desde MyBatisExample.
+
+   ![](img/CONSULTA_CLIENTES_DOC.png)
 
 4. Configure en el XML correspondiente (en este caso ItemMapper.xml) la operación 'insertarItem(Item it). Para este tenga en cuenta:
 	* Al igual que en en los dos casos anteriores, el query estará basado en los parámetros ingresados (en este caso, un objeto Item). En este caso, al hacer uso de la anotación @Param, la consulta SQL se podrá componer con los atributos de dicho objeto. Por ejemplo, si al paramétro se le da como nombre ("item"): __insertarItem(@Param("item")Item it)__, en el query se podría usar #{item.id}, #{item.nombre}, #{item.descripcion}, etc. Verifique el funcionamiento haciendo una consulta a través del 'mapper' desde MyBatisExample.
-	
+
+   ![](img/CONSULTA_ITEMS_ID.png)
+
 5. 	Configure en el XML correspondiente (de nuevo en ItemMapper.xml) las operaciones 'consultarItem(int it) y 'consultarItems()' de ItemMapper. En este caso, tenga adicionalmente en cuenta:
 	* Para poder configurar dichas operaciones, se necesita el 'resultMap' definido en ClientMapper. Para evitar tener CODIGO REPETIDO, mueva el resultMap _ItemResult_ de ClienteMapper.xml a ItemMapper.xml. Luego, como dentro de ClienteMapper el resultMap _ItemRentadoResult_ requiere del resultMap antes movido, haga referencia al mismo usando como referencia absoluta en 'namespace' de ItemMapper.xml:
 
@@ -172,3 +183,11 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 	```
 	
 	Verifique el funcionamiento haciendo una consulta a través del 'mapper' desde MyBatisExample.
+
+	![](img/mappers.png)
+
+	Colsultar Items
+	![](img/CONSULTA_ITEMS.png)
+
+	Colsultar Item
+	![](img/CONSULTA_ITEMS_ID.png)
