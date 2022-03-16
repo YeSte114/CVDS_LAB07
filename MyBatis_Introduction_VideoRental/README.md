@@ -187,7 +187,9 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 	![](img/mappers.png)
 
 	Colsultar Items
+
 	![](img/CONSULTA_ITEMS.png)
 
 	Colsultar Item
+
 	![](img/CONSULTA_ITEMS_ID.png)
