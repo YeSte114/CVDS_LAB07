@@ -38,4 +38,27 @@
 
 	* **Verificación de resultados**
 
-   ![](img/PRO_PEDIDOS.png)
+		* nombresProductoPedido
+
+			![](img/PRO_PEDIDOS_EJEC.png)
+
+			![](img/PRO_PEDIDOS.png)
+
+		* valorTotalPedido
+
+			![](img/TOL_PEDIDO_EJEC.png)
+
+			![](img/TOL_PEDIDO.png)
+
+		* registrarNuevoProducto
+
+			![](img/NEW_PRODUCTO_EJEC.png)
+
+			![](img/NEW_PRODUCTO.png)
+
+
+#### SECCIÓN II. - INTRODUCCIÓN A MYBATIS
+1. Revise la documentación básica de MyBatis de forma que entienda para qué sirve y el uso básico que se le puede dar al framework.
+2. Seguir las instrucciones que se encuentran en el repositorio de forma que en la clase **MyBatisExample.java** se creen los mappers necesarios y sea posible realizar la ejecución de diferentes sentencias SQL en la base de datos de pruebas.
+
+   ![](img/mappers.png)
