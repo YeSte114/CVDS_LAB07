@@ -33,4 +33,9 @@
 8. Verifique por medio de un cliente SQL, que la información retornada por el programa coincide con la que se encuentra almacenada en base de datos.
 
 	* **Ejecución**
+	
 	![](img/EJECUCION.png)
+
+	* **Verificación de resultados**
+
+   ![](img/PRO_PEDIDOS.png)
