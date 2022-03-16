@@ -19,7 +19,7 @@
 	
 6. En la clase **JDBCExample** juste los parámetros de conexión a la base de datos con los datos reales:
 
-	>**Url**: jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/bdprueba
+	**Url**: jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/bdprueba
 	**Driver**: com.mysql.jdbc.Driver
 	**Usuario**: bdprueba
 	**Contraseña**: prueba2019
